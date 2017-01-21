@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testScript : MonoBehaviour {
 
-	public GameObject testWave;
+	public GameObject wave;
 
 
 	void Start () {
@@ -12,9 +12,8 @@ public class testScript : MonoBehaviour {
 	}
 	
 	void Update() {
-		if (Input.GetMouseButtonDown(0)) {
+       /* if (Input.GetKey(KeyCode.Mouse0))
+        { Instantiate(wave, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)), Quaternion.identity); }*/
 
-			Instantiate(testWave, new Vector2(Random.Range(-5f,5f),Random.Range(-5f,5f)), Quaternion.identity);
-		}
 	}
 }
