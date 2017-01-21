@@ -1,9 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Wave.cs">
     <Files>
       <File FileName="Assets/Scripts/Wave.cs" Line="7" Column="32" />
       <File FileName="Assets/testScript.cs" Line="17" Column="80" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BehaviourScript.cs">
+    <Files>
+      <File FileName="Assets\BehaviourScript.cs" Line="1" Column="1" />
+>>>>>>> 07a44bcb223e90c5e3a16d4b79eadc910ae61a02
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
