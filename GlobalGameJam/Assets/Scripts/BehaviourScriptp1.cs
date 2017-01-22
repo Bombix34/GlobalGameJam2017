@@ -13,10 +13,17 @@ public class BehaviourScriptp1 : MonoBehaviour
     private bool dashUp;
     private float dashCd = 0;
     private Rigidbody2D rb2d;
+    public static bool ready = false;
+    /*private bool jumping = false;
+    private bool jmpRdy = true;
+    private float jumpTime = 1;
+    private float jumpCd = 2;
+    private Vector3 scale;*/
 
     // Use this for initialization
     void Start()
     {
+        //scale = transform.localScale;
         dashUp = true;
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -24,6 +31,7 @@ public class BehaviourScriptp1 : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
+        checkFin();
         if (dashCd > 0) {
             dashCd -= Time.deltaTime;
         }
@@ -55,8 +63,26 @@ public class BehaviourScriptp1 : MonoBehaviour
         {
             _x = 0;
         }
-
-        
+        /*if(Input.GetKey(KeyCode.Space)) {
+            if(jmpRdy) {
+                jumping = true;
+                jumpTime -= Time.captureFramerate;
+                jmpRdy = false;
+                transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                this.GetComponents<Collider2D>()[0].isTrigger = true;
+            }else {
+                if(jumping) {
+                    jumpTime -= Time.captureFramerate;
+                    if(jumpTime<=0) { jumping = false;jumpTime = 1; transform.localScale = scale; }
+                } else if(jumpCd>0) {
+                    jumpCd -= Time.deltaTime;
+                    if(jumpCd <=0) {
+                        jmpRdy = true;
+                        jumpCd = 2;
+                    }
+                }
+            }
+        }*/
 
         if (Input.GetKey(KeyCode.LeftShift) && dashUp)
         {
@@ -81,13 +107,19 @@ public class BehaviourScriptp1 : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-
-
-    void OnDestroy()
-    {
-        SceneManager.LoadScene("MainHugo");
-
+    private void checkFin() {
+        if(scriptElmt.endGame) {
+            transform.position = new Vector2(-4,1);
+            ready = true;
+            if (BehaviourScriptp2.ready == true)
+            {
+                ready = false;
+                BehaviourScriptp2.ready = true;
+                scriptElmt.endGame = false;
+            }
+        }
     }
+
 }
 
 

@@ -12,6 +12,10 @@ public class BehaviourScriptp2 : MonoBehaviour
     private bool dashUp;
     private float dashCd = 0;
     private Rigidbody2D rb2d;
+    public static bool ready = false;
+   /* private bool jumping = false;
+    private float jumpTime = 1;
+    private float jumpCd = 2;*/
 
     // Use this for initialization
     void Start()
@@ -23,7 +27,8 @@ public class BehaviourScriptp2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        checkFin();
+
         if (dashCd > 0){
             dashCd -= Time.deltaTime;
         }
@@ -81,9 +86,18 @@ public class BehaviourScriptp2 : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
+    private void checkFin()
+    {
+        if (scriptElmt.endGame)
+        {
+            transform.position = new Vector2(5,1);
+            ready = true;
+            if(BehaviourScriptp1.ready == true) {
+                ready = false;
+                BehaviourScriptp1.ready = true;
+                scriptElmt.endGame = false;     
+           }
 
-
-    void OnDestroy(){
-        SceneManager.LoadScene("MainHugo");
+        }
     }
 }

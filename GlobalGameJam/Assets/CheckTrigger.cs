@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckTrigger : MonoBehaviour {
 
@@ -16,6 +17,7 @@ public class CheckTrigger : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        scriptElmt.endGame = true;
+        GetComponent<scriptElmt>().enabled = false;
     }
 }

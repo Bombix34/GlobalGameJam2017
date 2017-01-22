@@ -33,6 +33,6 @@ public class Wave : MonoBehaviour {
     {
         Vector2 dir = new Vector2(other.GetComponent<Transform>().position.x - transform.position.x, other.GetComponent<Transform>().position.y - transform.position.y);
         dir *= 1.2f;
-        other.transform.Translate(new Vector3(5,5,0));
+        other.transform.Translate(dir);
     }
 }
